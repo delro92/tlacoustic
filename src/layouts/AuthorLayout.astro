@@ -2,7 +2,7 @@
 import BaseLayout from "./BaseLayout.astro";
 import "../styles/glightbox.css";
 import Prose from "../components/Prose.astro";
-import { getImage, Image } from "astro:assets";
+import { cfImage } from "../utils/cloudflare-image";
 const { frontmatter } = Astro.props;
 const updatedDate = frontmatter?.updatedDate
   .toDateString()
@@ -25,9 +25,7 @@ const alt = frontmatter.image?.alt;
 let baseUrl = new URL(Astro.request.url).origin;
 
 const metaImage = image
-  ? await getImage({
-      src: image,
-      alt: alt,
+  ? cfImage(image, alt, {
       width: 1280,
       height: 720,
       decoding: "async",
@@ -51,13 +49,17 @@ const metaImage = image
       image ? (
         <div>
           <div class="md:h-[480px] h-[360px]">
-            <Image
-              src={image}
+            <img
+              src={cfImage(image, alt, {
+                width: 1280,
+                height: 720,
+                decoding: "async",
+                format: "avif",
+                loading: "lazy",
+              }).src}
               alt={alt}
-              inferSize={true}
-              decoding="async"
-              format="avif"
-              loading="lazy"
+              width="1280"
+              height="720"
               style={`height: 100%`}
               data-pagefind-meta="image[src]"
             />

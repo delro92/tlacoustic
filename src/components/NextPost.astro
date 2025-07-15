@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import { getImage } from "astro:assets";
+import { cfImage } from "../utils/cloudflare-image";
 import Prose from "./Prose.astro";
 
 export interface Props {
@@ -14,11 +14,8 @@ const allPosts = await getCollection(collection);
 const otherPosts = allPosts.filter((post) => post.id !== currentId);
 const shouldRender = otherPosts.length > 0;
 
-async function optimizeImage(src, alt) {
-  return await getImage({
-    src,
-    alt,
-    // layout: "responsive",
+function optimizeImage(src, alt) {
+  return cfImage(src, alt, {
     width: 640,
     height: 360,
     format: "avif",
@@ -27,10 +24,9 @@ async function optimizeImage(src, alt) {
   });
 }
 
-const postsData = await Promise.all(
-  otherPosts.map(async (post) => {
+const postsData = otherPosts.map((post) => {
     const imageData = post.data.image
-      ? await optimizeImage(
+      ? optimizeImage(
           post.data.image.src,
           post.data.image.alt || post.data.title,
         )
@@ -42,10 +38,9 @@ const postsData = await Promise.all(
       image: imageData ? imageData.src : null,
       alt: post.data.image?.alt || post.data.title,
     };
-  }),
-);
+  });
 
-const favicon = await optimizeImage(
+const favicon = optimizeImage(
   "https://cdn.erfianugrah.com/ea_favicon.png",
   "favicon",
 );
