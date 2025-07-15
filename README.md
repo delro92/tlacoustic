@@ -775,7 +775,7 @@ This setup:
 For local development, you'll need:
 
 1. Bun (latest version)
-2. Node.js (LTS version)
+2. Node.js 20 LTS
 3. Git
 4. VS Code with the Astro extension is recommended
 
