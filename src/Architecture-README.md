@@ -87,8 +87,7 @@ The Masonry layout is a key visual feature of the site, implemented with CSS Gri
 graph TD
     A["Masonry.astro"] --> B["MasonryLayout.css"]
     A --> C["lightbox.js"]
-    A --> D["astro:assets"]
-    D --> E["getImage optimization"]
+    A --> D["Cloudflare Images"]
     
     classDef component fill:#f5d6c3,stroke:#333,stroke-width:1px
     classDef style fill:#c3e8f5,stroke:#333,stroke-width:1px
@@ -139,7 +138,7 @@ graph TD
 ### Image Processing Pipeline
 
 1. **Image Collection**: Images are specified in MDX frontmatter
-2. **Optimization**: The `getImage` function from `astro:assets` processes each image:
+2. **Optimization**: Cloudflare's image resizing service delivers transformed images:
    - Converts to AVIF format for better compression
    - Sets loading="lazy" for performance
    - Handles proper width/height attributes for CLS prevention

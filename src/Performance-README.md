@@ -39,20 +39,16 @@ Images are processed through Astro's built-in image optimization:
 
 ```javascript
 // Masonry.astro
-const imageAssets = await Promise.all(
-  images.map(async (image) => {
-    if (image) {
-      return await getImage({
-        src: image.src,
+const imageAssets = images.map((image) =>
+  image
+    ? cfImage(image.src, image.alt, {
         width: 3840,  // Maximum quality size
         height: 2160, // Maintains aspect ratio
         format: "avif", // Optimal compression format
         loading: "lazy", // Defer loading of off-screen images
         decoding: "async", // Allow browser to decode image asynchronously
-      });
-    }
-    return null;
-  }),
+      })
+    : null,
 );
 ```
 
