@@ -939,7 +939,7 @@ The photo gallery displays use a custom masonry layout implementation:
    }
    ```
 
-2. **Image Optimization**: The `Masonry.astro` component uses Astro's built-in image optimization:
+2. **Image Optimization**: The `Masonry.astro` component uses Cloudflare Image Resizing through the `cfImage` helper:
    ```astro
   const imageAssets = images.map((image) =>
     image

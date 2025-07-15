@@ -35,7 +35,7 @@ The project leverages Astro's islands architecture to minimize JavaScript:
 
 #### Size and Format Optimization
 
-Images are processed through Astro's built-in image optimization:
+Images are optimized using Cloudflare's resizing service via the `cfImage` helper:
 
 ```javascript
 // Masonry.astro
