@@ -570,7 +570,6 @@ Client-side JavaScript lives in the `src/scripts/` directory, providing essentia
 ### Build Utilities
 - **`remark-reading-time.mjs`**: MDX plugin that calculates and adds reading time estimates to posts
 - **`remark-modified-time.mjs`**: MDX plugin that extracts and normalizes file modification timestamps
-- **`updateImageLinks.js`**: Build-time utility for processing and optimizing image references
 
 All scripts are designed to be minimal, focused, and non-blocking to maintain the site's excellent performance profile.
 
