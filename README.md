@@ -1,10 +1,10 @@
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-5.6.0-blue.svg?cacheSeconds=2592000" />
-  <img alt="Astro" src="https://img.shields.io/badge/Astro-5.11.0-FF5D01.svg?logo=astro&logoColor=white" />
-  <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-4.0.8-38B2AC.svg?logo=tailwind-css&logoColor=white" />
-  <img alt="React" src="https://img.shields.io/badge/React-19.0.0-61DAFB.svg?logo=react&logoColor=white" />
-  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.7.2-3178C6.svg?logo=typescript&logoColor=white" />
-  <img alt="MDX" src="https://img.shields.io/badge/MDX-4.2.4-1B1F24.svg?logo=mdx&logoColor=white" />
+  <img alt="Astro" src="https://img.shields.io/badge/Astro-5.11.1-FF5D01.svg?logo=astro&logoColor=white" />
+  <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-4.1.7-38B2AC.svg?logo=tailwind-css&logoColor=white" />
+  <img alt="React" src="https://img.shields.io/badge/React-19.1.0-61DAFB.svg?logo=react&logoColor=white" />
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-5.8.3-3178C6.svg?logo=typescript&logoColor=white" />
+  <img alt="MDX" src="https://img.shields.io/badge/MDX-4.3.0-1B1F24.svg?logo=mdx&logoColor=white" />
   <img alt="Bun" src="https://img.shields.io/badge/Bun-Latest-F9F1E1.svg?logo=bun&logoColor=black" />
   <br/>
   <img alt="GitHub CI/CD" src="https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088FF.svg?logo=github-actions&logoColor=white" />
@@ -15,7 +15,7 @@
 
 ## Overview
 
-Revista is a photography portfolio and blog built on Astro v5.7.0. I created it to showcase various photography collections and writing organized into different categories like long-form, short-form, muses, zeitweilig, and my CV. The project prioritizes speed and visual design while using Astro's content collection API to manage everything efficiently.
+Revista is a photography portfolio and blog built on Astro v5.11.1. I created it to showcase various photography collections and writing organized into different categories like long-form, short-form, muses, zeitweilig, and my CV. The project prioritizes speed and visual design while using Astro's content collection API to manage everything efficiently.
 
 ## Project Structure
 
@@ -429,7 +429,7 @@ Each collection follows the same pattern of routes: index, individual posts, tag
 
 ## Styling System
 
-The site uses Tailwind CSS v4.0.8 for styling, with carefully configured settings in `tailwind.config.mjs` to create a cohesive design system:
+The site uses Tailwind CSS v4.1.7 for styling, with carefully configured settings in `tailwind.config.mjs` to create a cohesive design system:
 
 ### Design System Components
 
@@ -584,11 +584,11 @@ I've optimized the site in several ways:
 
 3. **Preloading and Prefetching**: Astro's `prefetch` feature loads linked pages before the user clicks, making navigation feel instant.
 
-4. **Efficient Bundling**: Astro v5.6.0 includes improved bundling and tree-shaking to minimize client-side code, with enhanced hydration strategies and faster component rendering.
+4. **Efficient Bundling**: Astro v5.11.1 includes improved bundling and tree-shaking to minimize client-side code, with enhanced hydration strategies and faster component rendering.
 
 5. **Cloudflare CDN**: The site uses Cloudflare's CDN with custom cache headers to serve content from edge locations worldwide.
 
-6. **Tailwind Optimizations**: Tailwind CSS v4.0.8's improved performance and lighter bundle size help pages load quickly.
+6. **Tailwind Optimizations**: Tailwind CSS v4.1.7's improved performance and lighter bundle size help pages load quickly.
 
 ## Search Functionality
 
@@ -659,7 +659,7 @@ While the site is currently in English, I've structured it with future translati
    - All scripts in `package.json` run through Bun
 
 2. **TypeScript**: 
-   - The project uses TypeScript v5.7.2 throughout
+   - The project uses TypeScript v5.8.3 throughout
    - Astro's built-in TypeScript support with `@astrojs/check` v0.9.4 catches type errors during build
 
 3. **Prettier**: 
@@ -667,7 +667,7 @@ While the site is currently in English, I've structured it with future translati
    - The Astro Prettier plugin (prettier-plugin-astro v0.14.1) properly formats .astro files
 
 4. **Tailwind CSS v4**: 
-   - The latest Tailwind CSS v4.0.8 with better performance and smaller bundles
+   - The latest Tailwind CSS v4.1.7 with better performance and smaller bundles
    - Configured with the typography plugin for long-form content
 
 ## CI/CD Workflow
@@ -795,10 +795,10 @@ To start working with this project:
    ```
    
    This installs:
-   - Astro v5.7.0
-   - Tailwind CSS v4.0.8
-   - React v19.0.0
-   - MDX v4.2.4 and other dependencies
+   - Astro v5.11.1
+   - Tailwind CSS v4.1.7
+   - React v19.1.0
+   - MDX v4.3.0 and other dependencies
 
 3. Run the development server:
    ```
