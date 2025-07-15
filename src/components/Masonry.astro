@@ -1,22 +1,17 @@
 ---
 import "../styles/MasonryLayout.css";
-import { getImage } from "astro:assets";
+import { cfImage } from "../utils/cloudflare-image";
 const { images } = Astro.props;
-const imageAssets = await Promise.all(
-  images.map(async (image) => {
-    if (image) {
-      return await getImage({
-        src: image.src,
-        alt: image.alt,
+const imageAssets = images.map((image) =>
+  image
+    ? cfImage(image.src, image.alt, {
         width: 3840,
         height: 2160,
         decoding: "async",
         format: "avif",
         loading: "lazy",
-      });
-    }
-    return null;
-  }),
+      })
+    : null,
 );
 ---
 

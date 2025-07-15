@@ -2,6 +2,14 @@
 
 @config '../../tailwind.config.mjs';
 
+@import '@fontsource-variable/inconsolata/index.css';
+@import '@fontsource-variable/overpass-mono/index.css';
+
+:root {
+  --font-inconsolata: 'Inconsolata Variable';
+  --font-overpass-mono: 'Overpass Mono Variable';
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
