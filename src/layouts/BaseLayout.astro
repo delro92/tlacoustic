@@ -1,9 +1,7 @@
----
 import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ScrollToTop from "../components/scroll-to-top";
-import { Font } from "astro:assets";
 import { cfImage } from "../utils/cloudflare-image";
 import "../styles/global.css";
 let baseUrl = new URL(Astro.request.url).origin;
@@ -95,9 +93,6 @@ const formattedUpdatedDate = updatedDate
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Fonts -->
-    <Font cssVariable="--font-inconsolata" preload />
-    <Font cssVariable="--font-overpass-mono" preload />
 
     <!-- Basic SEO -->
     <title>{title || pageTitle}</title>
