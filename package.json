@@ -30,7 +30,7 @@
     "@types/react": "^19.1.4",
     "@types/react-dom": "^19.1.5",
     "@types/sanitize-html": "^2.16.0",
-    "astro": "5.11.0",
+    "astro": "5.11.1",
     "astro-icon": "^1.1.5",
     "caniuse-lite": "^1.0.30001718",
     "class-variance-authority": "^0.7.1",
@@ -51,7 +51,8 @@
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.7",
     "typescript": "^5.8.3",
-    "undici": "^7.9.0"
+    "undici": "^7.9.0",
+    "esbuild": "^0.25.6"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
