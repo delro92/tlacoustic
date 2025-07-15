@@ -578,7 +578,7 @@ All scripts are designed to be minimal, focused, and non-blocking to maintain th
 
 I've optimized the site in several ways:
 
-1. **Image Processing**: Using Astro's `getImage` function to convert images to efficient formats and appropriate dimensions.
+1. **Image Processing**: Images are served through Cloudflare's image resizing service to deliver optimized formats and dimensions.
 
 2. **Lazy Loading**: Images load on demand using the `loading="lazy"` attribute, which prevents initial page load delays.
 
@@ -941,20 +941,16 @@ The photo gallery displays use a custom masonry layout implementation:
 
 2. **Image Optimization**: The `Masonry.astro` component uses Astro's built-in image optimization:
    ```astro
-   const imageAssets = await Promise.all(
-     images.map(async (image) => {
-       if (image) {
-         return await getImage({
-           src: image.src,
-           alt: image.alt,
-           width: 3840,
-           height: 2160,
-           format: "avif",
-           loading: "lazy",
-         });
-       }
-     })
-   );
+  const imageAssets = images.map((image) =>
+    image
+      ? cfImage(image.src, image.alt, {
+          width: 3840,
+          height: 2160,
+          format: "avif",
+          loading: "lazy",
+        })
+      : null
+  );
    ```
 
 3. **Responsive Breakpoints**: The masonry layout adapts to screen sizes with custom media queries:

@@ -3,13 +3,10 @@ import { ClientRouter } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import ScrollToTop from "../components/scroll-to-top";
-import { getImage } from "astro:assets";
-import { Font } from "astro:assets";
+import { cfImage } from "../utils/cloudflare-image";
 import "../styles/global.css";
 let baseUrl = new URL(Astro.request.url).origin;
-const metaImage = await getImage({
-  src: "https://cdn.erfianugrah.com/Tenhult_3.JPG",
-  alt: "Cover image for stoicopa website",
+const metaImage = cfImage("https://cdn.erfianugrah.com/Tenhult_3.JPG", "Cover image for stoicopa website", {
   height: 720,
   width: 1280,
   decoding: "async",
@@ -17,9 +14,7 @@ const metaImage = await getImage({
   loading: "lazy",
 });
 
-const favicon_webp = await getImage({
-  src: "https://cdn.erfianugrah.com/ea_favicon.png",
-  alt: "stoicopa favicon",
+const favicon_webp = cfImage("https://cdn.erfianugrah.com/ea_favicon.png", "stoicopa favicon", {
   height: 400,
   width: 400,
   decoding: "async",
@@ -48,7 +43,7 @@ const personSchema = {
   "@type": "Person",
   name: "Erfi Anugrah",
   url: baseUrl,
-  image: `${baseUrl}${favicon_webp.src}`,
+  image: favicon_webp.src,
   sameAs: [
     "https://mastodon.social/@stoicopa",
     "https://github.com/erfianugrah",
@@ -99,9 +94,6 @@ const formattedUpdatedDate = updatedDate
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Fonts -->
-    <Font cssVariable="--font-inconsolata" preload />
-    <Font cssVariable="--font-overpass-mono" preload />
 
     <!-- Basic SEO -->
     <title>{title || pageTitle}</title>
@@ -116,7 +108,7 @@ const formattedUpdatedDate = updatedDate
     <meta property="og:site_name" content={site_name || "stoicopa"} />
     <meta
       property="og:image"
-      content={image || `${baseUrl}${metaImage?.src}`}
+      content={image || metaImage?.src}
     />
     <meta
       property="og:image:alt"
@@ -132,7 +124,7 @@ const formattedUpdatedDate = updatedDate
     <meta name="twitter:description" content={description || metaDescription} />
     <meta
       name="twitter:image"
-      content={image || `${baseUrl}${metaImage?.src}`}
+      content={image || metaImage?.src}
     />
     <meta
       name="twitter:image:alt"
